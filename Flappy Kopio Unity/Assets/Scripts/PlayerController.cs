@@ -22,11 +22,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Move forward at a fixed speed
-        transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+        // transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
 
-        // Player jumps when space is pressed
+        // Player first stops any momentum it had and jumps when space is pressed
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            playerRb.velocity = Vector3.zero;
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
