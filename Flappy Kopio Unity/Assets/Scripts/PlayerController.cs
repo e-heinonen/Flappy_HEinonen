@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
     public float jumpForce;
     public float gravityModifier;
+    public float movementSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Move forward at a fixed speed
+        transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+
         // Player jumps when space is pressed
         if (Input.GetKeyDown(KeyCode.Space))
         {
